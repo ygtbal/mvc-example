@@ -1,8 +1,9 @@
 import express from 'express';
-import model from '../models/index';
-import books from '../models/books';
 
+import model from '../models/index';
+import {createBook} from '../controllers/bookController';
 const app = express();
+
 
 app.get('/', (req, res) => {
  model.books.find({}, (err, data) => {
@@ -12,5 +13,7 @@ app.get('/', (req, res) => {
     });
   });
 });
+
+app.post('/', createBook);
 
 module.exports = app;

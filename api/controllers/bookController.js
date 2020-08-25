@@ -15,3 +15,13 @@ export const createBook = (req, res) => {
     })
   })
 }
+
+export const getBook = (req, res) => {
+  model.books.aggregate([
+    {$match: {content: "Bjkbjk03@"}}
+  ],(err, data) => {
+    return res.json({
+      data,
+    })
+  });
+}
